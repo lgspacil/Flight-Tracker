@@ -1,0 +1,38 @@
+{{info|json}}
+
+<form class="form-horizontal">
+  <fieldset>
+    <legend>Flight API search</legend>
+    <div class="form-group">
+      <label for="inputEmail" class="col-lg-2 control-label">Origin</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="inputEmail" placeholder="SFO" name="origin" [(ngModel)]="info.request.slice[0].origin">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="" class="col-lg-2 control-label">Destination</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="destination" placeholder="ORD" name="destination" [(ngModel)]="info.request.slice[0].destination">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="" class="col-lg-2 control-label">Date</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="date" placeholder="YYYY-MM-DD" name="date" [(ngModel)]="info.request.slice[0].date">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="" class="col-lg-2 control-label">Max Price</label>
+      <div class="col-lg-10">
+        <input type="text" class="form-control" id="max_price" placeholder="1000" name="price" [(ngModel)]="info.request.maxPrice">
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="reset" class="btn btn-default">Cancel</button>
+        <button type="submit" class="btn btn-primary" (click)="makeAPICall()">Submit</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
