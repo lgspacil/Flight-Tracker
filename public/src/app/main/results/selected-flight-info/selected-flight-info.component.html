@@ -1,0 +1,26 @@
+<a class="btn btn-danger" role="button" (click)="goHome()">Home</a>
+
+<h1> Flight Information From: {{flights_info.origin[0]}} to {{flights_info.destination[flights_info.destination.length -1]}}</h1>
+
+{{flights_info | json}}
+
+
+
+
+<h3>{{flights_info.sale_price}}</h3>
+
+<div class="container" *ngFor="let x of legs; let i = index">
+    <h2>Trip Leg {{i + 1}}</h2>
+    <ul class="list-group">
+        Cabin: <li class="list-group-item">{{flights_info.cabin[i]}}</li>
+        Connection Duration: <li class="list-group-item">{{flights_info.total_connection_duration[i]}}</li>
+        Flight Duration:<li class="list-group-item">{{flights_info.total_flight_duration[i]}}</li>
+        Flight Carrier Code: <li class="list-group-item">{{flights_info.carrier[i]}}</li>
+        Flight Number: <li class="list-group-item">{{flights_info.flight_number[i]}}</li>
+        Aircraft: <li class="list-group-item">{{flights_info.aircraft[i]}}</li>
+        Arrival Time: <li class="list-group-item">{{flights_info.arrivalTime[i]}}</li>
+        Departure Time: <li class="list-group-item">{{flights_info.departureTime[i]}}</li>
+        Destination: <li class="list-group-item">{{flights_info.destination[i]}}</li>
+        Origin: <li class="list-group-item">{{flights_info.origin[i]}}</li>
+    </ul>
+</div>

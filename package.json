@@ -4,10 +4,10 @@
   "description": "",
   "main": "server.js",
   "dependencies": {
+    "angular-calendar": "^0.20.1",
     "angular-cookies": "^1.6.5",
     "body-parser": "^1.17.2",
     "express": "^4.15.4",
-    "google-flights-wrapper": "^1.0.5",
     "mongoose": "^4.11.7",
     "qpx-api": "^0.1.0"
   },

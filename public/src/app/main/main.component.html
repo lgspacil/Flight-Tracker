@@ -1,6 +1,4 @@
-{{info|json}}
-
-<form class="form-horizontal">
+<form class="form-horizontal" *ngIf="show_form == true">
   <fieldset>
     <legend>Flight API search</legend>
     <div class="form-group">
@@ -16,15 +14,9 @@
       </div>
     </div>
     <div class="form-group">
-      <label for="" class="col-lg-2 control-label">Date</label>
+      <label for="" class="col-lg-2 control-label">Date: Input date like this: YYY-MM-DD</label>
       <div class="col-lg-10">
         <input type="text" class="form-control" id="date" placeholder="YYYY-MM-DD" name="date" [(ngModel)]="info.request.slice[0].date">
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="" class="col-lg-2 control-label">Max Price</label>
-      <div class="col-lg-10">
-        <input type="text" class="form-control" id="max_price" placeholder="1000" name="price" [(ngModel)]="info.request.maxPrice">
       </div>
     </div>
     
@@ -36,3 +28,11 @@
     </div>
   </fieldset>
 </form>
+
+
+
+
+
+
+<app-results [flightData]="flight_info" *ngIf="show_results == true">loading... </app-results>
+

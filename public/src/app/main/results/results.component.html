@@ -1,0 +1,87 @@
+<div *ngIf="results_page == true">
+  <h3>Results</h3>
+
+  <table class="table table-striped table-hover ">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Price</th>
+        <th>Carrier</th>
+        <th>Number of Stops</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>{{flightData.trips.tripOption[0].saleTotal}}</td>
+        <td>{{flightData.trips.tripOption[0].slice[0].segment[0].flight.carrier}}</td>
+        <td>{{flightData.trips.tripOption[0].slice[0].segment.length}}</td>
+        <button (click)="selectedThis(0)">Select</button>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>{{flightData.trips.tripOption[1].saleTotal}}</td>
+        <td>{{flightData.trips.tripOption[1].slice[0].segment[0].flight.carrier}}</td>
+        <td>{{flightData.trips.tripOption[1].slice[0].segment.length}}</td>
+        <button (click)="selectedThis(1)">Select</button>
+      </tr>
+      <tr class="info">
+        <td>3</td>
+        <td>{{flightData.trips.tripOption[2].saleTotal}}</td>
+        <td>{{flightData.trips.tripOption[2].slice[0].segment[0].flight.carrier}}</td>
+        <td>{{flightData.trips.tripOption[2].slice[0].segment.length}}</td>
+        <button (click)="selectedThis(2)">Select</button>
+      </tr>
+      <tr class="success">
+        <td>4</td>
+        <td>{{flightData.trips.tripOption[3].saleTotal}}</td>
+        <td>{{flightData.trips.tripOption[3].slice[0].segment[0].flight.carrier}}</td>
+        <td>{{flightData.trips.tripOption[3].slice[0].segment.length}}</td>
+        <button (click)="selectedThis(3)">Select</button>
+      </tr>
+      <tr class="danger">
+        <td>5</td>
+        <td>{{flightData.trips.tripOption[4].saleTotal}}</td>
+        <td>{{flightData.trips.tripOption[4].slice[0].segment[0].flight.carrier}}</td>
+        <td>{{flightData.trips.tripOption[4].slice[0].segment.length}}</td>
+        <button (click)="selectedThis(4)">Select</button>
+      </tr>
+      <tr class="warning">
+        <td>6</td>
+        <td>{{flightData.trips.tripOption[5].saleTotal}}</td>
+        <td>{{flightData.trips.tripOption[5].slice[0].segment[0].flight.carrier}}</td>
+        <td>{{flightData.trips.tripOption[5].slice[0].segment.length}}</td>
+        <button (click)="selectedThis(5)">Select</button>
+      </tr>
+      <tr class="active">
+        <td>7</td>
+        <td>{{flightData.trips.tripOption[6].saleTotal}}</td>
+        <td>{{flightData.trips.tripOption[6].slice[0].segment[0].flight.carrier}}</td>
+        <td>{{flightData.trips.tripOption[6].slice[0].segment.length}}</td>
+        <button (click)="selectedThis(6)">Select</button>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>{{flightData.trips.tripOption[7].saleTotal}}</td>
+        <td>{{flightData.trips.tripOption[7].slice[0].segment[0].flight.carrier}}</td>
+        <td>{{flightData.trips.tripOption[7].slice[0].segment.length}}</td>
+        <button (click)="selectedThis(7)">Select</button>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>{{flightData.trips.tripOption[8].saleTotal}}</td>
+        <td>{{flightData.trips.tripOption[8].slice[0].segment[0].flight.carrier}}</td>
+        <td>{{flightData.trips.tripOption[8].slice[0].segment.length}}</td>
+        <button (click)="selectedThis(8)">Select</button>
+      </tr>
+      <tr class="info">
+        <td>10</td>
+        <td>{{flightData.trips.tripOption[9].saleTotal}}</td>
+        <td>{{flightData.trips.tripOption[9].slice[0].segment[0].flight.carrier}}</td>
+        <td>{{flightData.trips.tripOption[9].slice[0].segment.length}}</td>
+        <button (click)="selectedThis(9)">Select</button>
+      </tr>
+    </tbody>
+  </table> 
+</div>
+<app-selected-flight-info [selected_flight]="selected_flight_info" *ngIf="selected_flight_page == true"></app-selected-flight-info>

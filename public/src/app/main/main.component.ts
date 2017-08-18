@@ -11,6 +11,7 @@ import { HttpService } from "app/http.service";
 })
 export class MainComponent implements OnInit {
 
+
   info = {
     "request": {
       "passengers": {
@@ -32,14 +33,19 @@ export class MainComponent implements OnInit {
           },
         }
       ],
-      "maxPrice": "USD"+'',
-      "refundable": true,
+      // "maxPrice": `USD`+'',
+      "refundable": false,
+      "solutions": 20,
     }
   }
-  
-  
 
-  constructor(private _httpService: HttpService, private _route: ActivatedRoute, private _router: Router) { }
+  show_results = false;
+  show_form = true;
+
+  flight_info: null;
+  
+  
+  constructor(private _httpService: HttpService, private _route: ActivatedRoute, private _router: Router) {}
 
   
   ngOnInit() {
@@ -49,8 +55,10 @@ export class MainComponent implements OnInit {
     this._httpService.makeAPICallToServer(this.info)
 
     .then((data) =>{
-      console.log("I got some data back", data);
-      
+      this.flight_info = data;
+      this.show_results = true;
+      this.show_form = false;
+
     })
     .catch((err) =>{
       console.log("got an error when making a call back");
