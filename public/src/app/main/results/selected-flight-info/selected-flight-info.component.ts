@@ -7,6 +7,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class SelectedFlightInfoComponent implements OnInit {
   @Input() selected_flight;
+  @Input() carrier_info;
+  @Output() goBackClicked = new EventEmitter();
 
   constructor() { }
 
@@ -34,6 +36,8 @@ export class SelectedFlightInfoComponent implements OnInit {
   ngOnInit() {
     console.log(this.selected_flight)
 
+    console.log("the carrier code is this: ", this.carrier_info)
+
     this.flights_info.sale_price = this.selected_flight.saleTotal;
 
     for (let i in this.selected_flight.slice[0].segment){
@@ -45,7 +49,14 @@ export class SelectedFlightInfoComponent implements OnInit {
         this.flights_info.total_connection_duration.push(this.selected_flight.slice[0].segment[i].connectionDuration);
       }
       this.flights_info.total_flight_duration.push(this.selected_flight.slice[0].segment[i].duration);
-      this.flights_info.carrier.push(this.selected_flight.slice[0].segment[i].flight.carrier);
+      
+      for(let c in this.carrier_info){
+        if (this.carrier_info[c].code == this.selected_flight.slice[0].segment[i].flight.carrier){
+          this.flights_info.carrier.push(this.carrier_info[c].name)
+        }
+      }
+
+      // this.flights_info.carrier.push(this.selected_flight.slice[0].segment[i].flight.carrier);
       this.flights_info.flight_number.push(this.selected_flight.slice[0].segment[i].flight.number);
       this.legs.push("tetsing");
 
@@ -62,8 +73,9 @@ export class SelectedFlightInfoComponent implements OnInit {
 
   }
 
-  goHome(){
-    
+  goBack(){
+    console.log("I am here in the go home call..");
+    this.goBackClicked.emit(false);
   }
 
 }

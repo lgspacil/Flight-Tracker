@@ -23,16 +23,15 @@
     <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
         <button type="reset" class="btn btn-default">Cancel</button>
-        <button type="submit" class="btn btn-primary" (click)="makeAPICall()">Submit</button>
+        <button type="submit" class="btn btn-primary" [class.buttonLoad]="loadButton" (click)="makeAPICall()">
+          <p *ngIf="loadButton == false" class="notLoaded">Submit</p>
+          <i [class.fa]="loadButton" [class.fa-refresh]="loadButton" [class.fa-spin]="loadButton"></i><p *ngIf="loadButton == true">Loading</p>
+        </button>
       </div>
     </div>
   </fieldset>
 </form>
 
 
-
-
-
-
-<app-results [flightData]="flight_info" *ngIf="show_results == true">loading... </app-results>
+<app-results (goHomeClicked)="closeResultsPage($event)" [flightData]="flight_info" *ngIf="show_results == true">loading... </app-results>
 

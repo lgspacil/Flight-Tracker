@@ -1,0 +1,19 @@
+.buttonLoad{
+    background-color: #4CAF50; /* Green background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 12px 16px; /* Some padding */
+    font-size: 16px ;/* Set a font size */
+    width: 292px;
+    text-align: center;
+
+}
+
+.notLoaded{
+    text-align: center;
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 12px 16px; /* Some padding */
+    font-size: 16px; /* Set a font size */
+    width: 260px;
+}

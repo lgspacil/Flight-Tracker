@@ -1,13 +1,9 @@
-<a class="btn btn-danger" role="button" (click)="goHome()">Home</a>
+<a class="btn btn-danger" role="button" (click)="goBack()">Back</a>
 
-<h1> Flight Information From: {{flights_info.origin[0]}} to {{flights_info.destination[flights_info.destination.length -1]}}</h1>
-
-{{flights_info | json}}
+<h1 class="center"> Flight Information From: {{flights_info.origin[0]}} to {{flights_info.destination[flights_info.destination.length -1]}}</h1>
 
 
-
-
-<h3>{{flights_info.sale_price}}</h3>
+<h3 class="center">{{flights_info.sale_price}}</h3>
 
 <div class="container" *ngFor="let x of legs; let i = index">
     <h2>Trip Leg {{i + 1}}</h2>
@@ -15,7 +11,7 @@
         Cabin: <li class="list-group-item">{{flights_info.cabin[i]}}</li>
         Connection Duration: <li class="list-group-item">{{flights_info.total_connection_duration[i]}}</li>
         Flight Duration:<li class="list-group-item">{{flights_info.total_flight_duration[i]}}</li>
-        Flight Carrier Code: <li class="list-group-item">{{flights_info.carrier[i]}}</li>
+        Flight Carrier: <li class="list-group-item">{{flights_info.carrier[i]}}</li>
         Flight Number: <li class="list-group-item">{{flights_info.flight_number[i]}}</li>
         Aircraft: <li class="list-group-item">{{flights_info.aircraft[i]}}</li>
         Arrival Time: <li class="list-group-item">{{flights_info.arrivalTime[i]}}</li>

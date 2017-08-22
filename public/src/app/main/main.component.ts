@@ -41,7 +41,7 @@ export class MainComponent implements OnInit {
 
   show_results = false;
   show_form = true;
-
+  loadButton = false;
   flight_info: null;
   
   
@@ -52,6 +52,8 @@ export class MainComponent implements OnInit {
   }
 
   makeAPICall(){
+    this.loadButton = true;
+
     this._httpService.makeAPICallToServer(this.info)
 
     .then((data) =>{
@@ -64,6 +66,12 @@ export class MainComponent implements OnInit {
       console.log("got an error when making a call back");
       
     })
+  }
+
+  closeResultsPage(event){
+    this.show_results = false;
+    this.show_form = true;
+    this.loadButton = false;
   }
 
 

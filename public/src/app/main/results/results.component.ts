@@ -8,12 +8,15 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class ResultsComponent implements OnInit {
   @Input() flightData;
+  @Output() goHomeClicked = new EventEmitter();
 
   carrierName = {};
 
   selected_flight_page = false;
 
   selected_flight_info = null;
+
+  selected_flight_carrier = '';
 
   results_page = true;
 
@@ -22,6 +25,9 @@ export class ResultsComponent implements OnInit {
   ngOnInit() {
     console.log("in the results component with the flight data: ", this.flightData);
     this.carrierName = this.flightData.trips.data.carrier;
+
+    console.log(this.carrierName);
+    
   }
 
   selectedThis(num){
@@ -32,6 +38,17 @@ export class ResultsComponent implements OnInit {
     this.selected_flight_page = true;
     this.results_page = false;
 
+  }
+
+  closeResultsPage(event){
+    console.log(event)
+    console.log("I am back in the results page");
+    this.results_page = true;
+    this.selected_flight_page = false;
+  }
+
+  goHome(){
+    this.goHomeClicked.emit(false);
   }
 
 }
