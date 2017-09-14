@@ -43,16 +43,23 @@ export class MainComponent implements OnInit {
   show_form = true;
   loadButton = false;
   flight_info: null;
+
+  number_of_days_this_month: number;
   
   
   constructor(private _httpService: HttpService, private _route: ActivatedRoute, private _router: Router) {}
 
   
   ngOnInit() {
+    
+    console.log("loading")
+    
   }
 
+
   makeAPICall(){
-    this.loadButton = true;
+
+    this.loadButton = true;  
 
     this._httpService.makeAPICallToServer(this.info)
 
